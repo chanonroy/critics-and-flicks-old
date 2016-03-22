@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+    <h1> Movie List </h1>
+    {{ movie }}
+
+    <h1> Review List </h1>
+    {% for rev in reviews %}
+
+    {{ rev.reviewer }}<br><br>
+
+    {% endfor %}
+</body>
+</html>
