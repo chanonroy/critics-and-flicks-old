@@ -6,13 +6,25 @@
 </head>
 <body>
     <h1> Movie List </h1>
-    {{ movie }}
+    {{ movie.title }}
+
+    <h3> Similar Movies </h3>
+    {% for sim in similar %}
+    {{ sim.movie }}
+    {{ sim.sim1 }}<br>
+    {{ sim.sim2 }}<br>
+    {{ sim.sim3 }}<br>
+    {{ sim.sim4 }}<br>
+    {{ sim.sim5 }}<br>
+    {% endfor %}
 
     <h1> Review List </h1>
     {% for rev in reviews %}
 
+    {{ rev.review }}<br>
     {{ rev.reviewer }}<br><br>
 
     {% endfor %}
+
 </body>
 </html>
