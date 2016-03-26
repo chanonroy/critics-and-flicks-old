@@ -1,9 +1,10 @@
-import re
+import json
+from critic.secrets import *
 import requests
 from bs4 import BeautifulSoup
 
 # take movie name as input and return the relevant URL titles
-mn_orig = str(input("Please enter a movie name\n>>> "))             # Take in
+mn_orig = str(input("Please enter a movie name\n>>> "))             # Take in movie name return as string
 rt_name = mn_orig.replace(" ", "_").lower()                         # Rotten Tomatoes has '_' in between words
 omdb_name = mn_orig.replace(" ", "+").lower()                       # OMDB has '+' in between words
 
@@ -52,17 +53,17 @@ def get_reviews():
     return reviews_f, critics
 
 
-def get_similar(imdb):
-    # raw = requests.get("http://www.imdb.com/title/{}/".format(imdb))
-    # soup = BeautifulSoup(raw.content, 'html.parser')
-    # sim = soup.find_all("div", {"class": "rec-title"})
-    # similar = [x.text for x in sim[0:5]]                # '\nRiddick\n(2013)\n', '\nElysium\nI\n(2013)\n', '\nRoboCop\n(2014)\n'
+def get_similar():
+    """ Use 'Taste Kid' API to return similar movies - usage limit 150 per hour """
+    r = requests.get("https://www.tastekid.com/api/similar?q={}&k={}&type=movies&limit=5".format(omdb_name, tastekid_api))
+    data = json.loads(r.text)
 
-    similar = ['\nRiddick\n(2013)\n', '\nElysium\nI\n(2013)\n', '\nRoboCop\n(2014)\n']
-    simnew = re.match(r"\[([A-Za-z0-9_]+)\]", similar)
+    # parsing through nested dictionary object
+    sim = data['Similar']['Results']
+    similar = [li['Name'] for li in sim]
 
-    # print(similar)
+    print(similar)
 
-get_similar('tt1731141')
+get_similar()
 
 # get_reviews()
