@@ -1,12 +1,21 @@
+"""
+Script to retrieve movie information for the database
+Run using 'python manage.py shell' and 'from game.utils import *'
+"""
+
 import json
-from critic.secrets import *
 import requests
 from bs4 import BeautifulSoup
+
+from critic.secrets import *
+from .models import Movie
 
 # take movie name as input and return the relevant URL titles
 mn_orig = str(input("Please enter a movie name\n>>> "))             # Take in movie name return as string
 rt_name = mn_orig.replace(" ", "_").lower()                         # Rotten Tomatoes has '_' in between words
 omdb_name = mn_orig.replace(" ", "+").lower()                       # OMDB has '+' in between words
+
+# TODO: Filter out 'the', 'a', 'an' from search
 
 
 def get_details():
@@ -22,10 +31,20 @@ def get_details():
     actor_ln = actor.split(" ")[1]                                  # Actor Last Name
     year_filmed = movie['Year']                                     # Year of film release
     poster_url = movie['Poster']                                    # URL for image of poster
-    genres = movie['Genre'].split(",")                              # Genres separated in a list
-    imdb = movie['imdbID']                                          # IMDb ID
+    genres = movie['Genre']                                         # Genres separated in a list
+    plot = movie['Plot']                                            # Movie plot
 
-    return director_last_name, year_filmed, actor_fn, actor_ln, poster_url, genres, imdb
+    print("\nTitle: {}\nDirector: {}\nYear: {}\nPlot: {}".format(mn_orig, director, year_filmed, plot))
+    confirm = input(str("\nShall I save to the database, sir? (Y/N)")).lower()
+
+    if confirm == 'y':
+        new = Movie(title=mn_orig, director=director, year=year_filmed, description=plot, poster_url=poster_url, genre=genres)
+        new.save()
+    else:
+        print("\nProcess terminated")
+        return
+
+    return director_last_name, year_filmed, actor_fn, actor_ln
 
 
 def get_reviews():
@@ -50,20 +69,66 @@ def get_reviews():
                      .replace(d[2], "[Actor First Name]")
                      .replace(d[3], "[Actor Name]") for word in reviews]
 
-    return reviews_f, critics
+    for line in reviews_f:
+        print("Review: {}".format(line))
+    print("Critics: {}".format(critics))
+
+    # print("Reviews: {}\nCritics: {}".format(reviews_f, critics))
+    confirm = input(str("\nIs this okay? (Y/N)"))
+
+    # point to primary key object to properly construct review object
+    mov = Movie.objects.get(title=mn_orig)
+
+    # loop to return 5 reviews and save into database
+    if confirm == 'y':
+        for i in range(0, 5):
+            rev = mov.review_set.create(review=reviews_f[i], reviewer=critics[i])
+    else:
+        print("Process terminated")
+        return
+
+    return mov
 
 
 def get_similar():
     """ Use 'Taste Kid' API to return similar movies - usage limit 150 per hour """
-    r = requests.get("https://www.tastekid.com/api/similar?q={}&k={}&type=movies&limit=5".format(omdb_name, tastekid_api))
+
+    d = get_reviews()
+
+    r = requests.get("https://www.tastekid.com/api/similar?q={}&k={}&type=movies&info=1&limit=5".format(omdb_name, tastekid_api))
     data = json.loads(r.text)
 
     # parsing through nested dictionary object
-    sim = data['Similar']['Results']
-    similar = [li['Name'] for li in sim]
+    dict_parse = data['Similar']['Results']
+    similar = [li['Name'] for li in dict_parse]
+    url = [li['yUrl'] for li in dict_parse]
 
-    print(similar)
+    youtube = data['Similar']['Info']
+    real_name = youtube[0]['Name']
+    real_url = youtube[0]['yUrl']
 
-get_similar()
+    print("Similar: {}".format(similar))
+    confirm = input(str("\nIs this okay? (Y/N)"))
 
-# get_reviews()
+    # point to primary key object to properly construct similar object
+    mov = Movie.objects.get(title=mn_orig)
+
+    # loop to set movie trailer urls and similar movie names to the database
+    if confirm == 'y':
+        sim = mov.similar_set.create(real=real_name,
+                                     real_u=real_url,
+                                     sim1=similar[0],
+                                     url1=url[0],
+                                     sim2=similar[1],
+                                     url2=url[1],
+                                     sim3=similar[2],           # this seems like a really dumb way to do this ...
+                                     url3=url[2],
+                                     sim4=similar[3],
+                                     url4=url[3],
+                                     sim5=similar[4],
+                                     url5=url[4])
+    else:
+        print("Process terminated")
+        return
+
+get_similar()               # TODO: recursive, run function again

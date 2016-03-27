@@ -18,6 +18,9 @@ def index(request):
     # r = random.sample(range(1,9), 3)
     rev = m.review_set.all()[:3]
     s = m.similar_set.all()
+
+    # http://jsfiddle.net/gpJN4/3/ -- fiddle for youtube embed (similar movies)
+
     context = {
         "movie": m,
         "reviews": rev,
