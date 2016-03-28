@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+    <h1> Movie List </h1>
+    {{ movie.title }}
+
+    <h3> Similar Movies </h3>
+
+    {% for key, value in similar.items %}
+
+        {{ key }}<br>
+        {{ value }}<br><br>
+
+    {% endfor %}
+
+    <h1> Review List </h1>
+    {% for rev in reviews %}
+
+    {{ rev.review }}<br>
+    <b>{{ rev.reviewer }}</b><br><br>
+
+    {% endfor %}
+
+<!-- http://jsfiddle.net/gpJN4/3/ -->
+
+</body>
+</html>

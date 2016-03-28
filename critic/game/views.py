@@ -1,29 +1,35 @@
 import random
 from django.shortcuts import render
-from .models import Movie, Review, Similar
-
-# film = "Gods of Egypt" (hard coded way to test)
+from .models import Movie
 
 
 def index(request):
-    # determine count of all movies
-    m_count = Movie.objects.count()
-    # hard_code_length = 500
-    # find random integer for indexing
-    movies_int = random.randint(1, m_count)     # could hard code length to prevent db strain
-    # index movie by random primary key
-    m = Movie.objects.get(id=movies_int)
 
-    # 8 reviews in a pack, return 3
-    # r = random.sample(range(1,9), 3)
-    rev = m.review_set.all()[:3]
-    s = m.similar_set.all()
+    # random movie from database (TODO: refactor)
+    m_count = 60    # hardcoded to avoid costly counting operation
+    movies_int = random.randint(0, m_count)
+    m = Movie.objects.all()[movies_int - 1]                     # alt = Movie.objects.get(title=movie) - with text file
 
-    # http://jsfiddle.net/gpJN4/3/ -- fiddle for youtube embed (similar movies)
+    # random reviews from database
+    r = random.sample(range(0, 5), 3)
+    rev = m.review_set.all()
+    reviews = [rev[r[0]], rev[r[1]], rev[r[2]]]
+
+    # Similar movies dictionary object (key=title, value=youtube url)
+    # (TODO: return 2 out of 5 similar with main included)
+    t = m.similar_set.values()
+    t = t[0]
+    sim = {t['real']: t['real_u'], t['sim1']: t['url1'], t['sim2']: t['url2'], t['sim3']: t['url3'],
+           t['sim4']: t['url4'], t['sim5']: t['url5']}
+    # TODO: add html class in the value for key (main movie)
 
     context = {
         "movie": m,
-        "reviews": rev,
-        "similar": s
+        "reviews": reviews,
+        "similar": sim
     }
-    return render(request, "index.html", context)
+    return render(request, "game/game.html", context)
+
+# http://stackoverflow.com/questions/1602557/display-django-values-on-foreign-key-in-template-as-object-instead-of-its-id
+# http://stackoverflow.com/questions/27180190/django-using-objects-values-and-get-foreignkey-data-in-template
+
