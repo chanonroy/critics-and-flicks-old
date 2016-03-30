@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .models import Movie
 
 
-def index(request):
+def game(request):
 
     # random movie from database (TODO: refactor)
     m_count = 60    # hardcoded to avoid costly counting operation
@@ -29,7 +29,4 @@ def index(request):
         "similar": sim
     }
     return render(request, "game/game.html", context)
-
-# http://stackoverflow.com/questions/1602557/display-django-values-on-foreign-key-in-template-as-object-instead-of-its-id
-# http://stackoverflow.com/questions/27180190/django-using-objects-values-and-get-foreignkey-data-in-template
 

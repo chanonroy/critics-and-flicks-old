@@ -2,29 +2,224 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Critics and Flicks | Home </title>
+
+    <!-- Bootstrap Official CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Custom CSS Styles -->
+    <link rel='stylesheet' href='/assets/css/style.css'/>
+
 </head>
 <body>
-    <h1> Movie List </h1>
-    {{ movie.title }}
 
-    <h3> Similar Movies </h3>
-    {% for sim in similar %}
-    {{ sim.movie }}
-    {{ sim.sim1 }}<br>
-    {{ sim.sim2 }}<br>
-    {{ sim.sim3 }}<br>
-    {{ sim.sim4 }}<br>
-    {{ sim.sim5 }}<br>
-    {% endfor %}
+<!-- Top Nav Bar -->
+<nav class="navbar navbar-default navbar-fixed-top transition">
+    <div class="container">
+        <!-- Logo here -->
+        <div class="navbar-header">
+            <!-- Responsive Hamburger Icon -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#1"><strong>C<font color="#ffd700">&#38;</font>F</strong></a>
+        </div>
 
-    <h1> Review List </h1>
-    {% for rev in reviews %}
+        <!-- Menu Items -->
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#2">Instructions</a></li>
+                <li><a href="#3">Categories</a></li>
+                <!--<li><a href="#">Leaderboards</a></li>-->
+                <li><a href="#4">Coming Soon</a></li>
+                <li><a href="#5">About</a></li>
+                <!--<li><a href="#">Log In</a></li>-->
+                <!--<li><a href="#">Sign Up</a></li>-->
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    {{ rev.review }}<br>
-    {{ rev.reviewer }}<br><br>
+<!-- Jumbotron -->
+<section id="1" class="navfix">
+    <div class="jumbotron">
+        <div id="jumbo">
+            <h1>CRITICS <font color="#ffd700">&#38;</font> FLICKS</h1>
+            <h2> A Movie Guessing Game</h2>
+            <h3> Guess the movie after reading the reviews </h3>
+            <p> <font color="#ffd700">500+</font> movies | <font color="#ffd700">5,000+</font> reviews </p>
+            <p> <a href="#" class="ghost-button">Play Now</a> <a href="#2" class="ghost-button">How to Play</a> </p>
+        </div>
+        <div class="jumbo-bot">
+            <img src="/assets/imgs/popcorn.png">
+        </div>
+    </div>
+</section>
 
-    {% endfor %}
+<!-- Instructions -->
+<section id="2" class="navfix">
+    <div id="how_to_play" class="container-fluid">
+        <div class="container text-center">
+            <div class="row">
+                <h1> How to Play </h1>
+            </div>
+            <div class="row text-center">
+                <div class="col-sm-6 col-xs-12">
+                    <img src="http://placehold.it/100" style="width:400px; height:200px">
+                    <h3> Step 1</h3>
+                    <p> Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor  </p>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <img src="http://placehold.it/100" style="width:400px; height:200px">
+                    <h3>Step 2</h3>
+                    <p> Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio  </p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-sm-6 col-xs-12">
+                    <img src="http://placehold.it/100" style="width:400px; height:200px">
+                    <h3>Step 3</h3>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. </p>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <img src="http://placehold.it/100" style="width:400px; height:200px">
+                    <h3>Step 4</h3>
+                    <p>Cusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Themes -->
+<section id="3" class="navfix">
+    <div id="themes" class="container-fluid">
+        <div class="container text-center">
+            <div class="row">
+                <h1> Categories </h1>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-3 col-xs-6">
+                    <img src="/assets/imgs/avengers.jpg" class="theme-photo">
+                    <h3> 2010s </h3>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <img src="/assets/imgs/avatar.jpg" class="theme-photo">
+                    <h3>2000s</h3>
+                </div>
+                <!--<div class="clearfix-visible-xs"></div>-->
+                <div class="col-lg-3 col-xs-6">
+                    <img src="/assets/imgs/shaw.jpg" class="theme-photo">
+                    <h3>1990s</h3>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <img src="/assets/imgs/indiana.jpg" class="theme-photo">
+                    <h3>1980s</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-3 col-xs-6">
+                    <img src="/assets/imgs/cruise.jpg" class="theme-photo">
+                    <h3> Action </h3>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <img src="/assets/imgs/carey.jpg" class="theme-photo">
+                    <h3> Comedy </h3>
+                </div>
+                <!--<div class="clearfix"></div>-->
+                <div class="col-lg-3 col-xs-6">
+                    <img src="/assets/imgs/horror.jpg" class="theme-photo">
+                    <h3> Horror </h3>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <img src="/assets/imgs/notebook.jpeg" class="theme-photo">
+                    <h3> Romance </h3>
+                </div>
+            </div>
+            <h2> - Feature Currently in Development - </h2>
+        </div>
+    </div>
+</section>
+
+<!-- Coming Soon -->
+<section id="4" class="navfix">
+    <div id="coming" class="container-fluid text-center">
+        <div class="container text-center">
+            <div class="row">
+                <h1> Future Updates </h1>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <i class="fa fa-user fa-5x"></i>
+                    <h3> User Profiles </h3>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <i class="fa fa-bars fa-5x"></i>
+                    <h3> Leaderboards </h3>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <i class="fa fa-star fa-5x"></i>
+                    <h3> Points System </h3>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <i class="fa fa-gamepad fa-5x"></i>
+                    <h3> Achievements </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- About -->
+<section id="5" class="navfix">
+    <div id="about" class="container-fluid text-center">
+        <div class="bottom">
+            <div class="container">
+                <div class="col-sm-4 foot-item">
+                    <h3> About <strong>C<font color="#ffd700">&#38;</font>F</strong></h3>
+                    <p> Created with <font color="#2AA9D4">Python</font> using <font color="#24B53A">Django</font> and
+                        <font color="#B16DD1">Bootstrap</font> <br> Reviews are aggregated from online sources </p>
+                    <p> Thanks to <a href="https://www.iconfinder.com/ThibaultPenin" target="_blank"> Thibault Penin </a> for the popcorn graphic</p>
+                </div>
+                <div class="col-sm-4 foot-item">
+                    <h3> Follow </h3>
+                    <p>
+                        <a href="#" target="_blank"><i class="fa fa-facebook-square fa-4x"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-twitter-square fa-4x"></i></a>
+                        <a href="#" target="_blank"><i class="fa fa-instagram fa-4x"></i></a>
+                    </p>
+                </div>
+                <div class="col-sm-4 foot-item">
+                    <h3>Contact </h3>
+                    <p> Found a bug? Have a suggestion? <br> Feel free to reach out to me: </p>
+                    <p> chanonroy@gmail.com </p>
+                </div>
+            </div>
+            <div class="signature">
+                Developed by <a href="http://chanonroy.com" target="_blank"> Chanon Roy</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Custom JS -->
+<script src="/assets/js/custom.js"></script>
 
 </body>
 </html>
