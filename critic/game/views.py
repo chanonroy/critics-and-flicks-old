@@ -8,7 +8,7 @@ def game(request):
     # random movie from database (TODO: refactor)
     m_count = 60    # hardcoded to avoid costly counting operation
     movies_int = random.randint(0, m_count)
-    m = Movie.objects.all()[movies_int - 1]                     # alt = Movie.objects.get(title=movie) - with text file
+    m = Movie.objects.all()[movies_int]                     # alt = Movie.objects.get(title=movie) - with text file
 
     # random reviews from database
     r = random.sample(range(0, 5), 3)

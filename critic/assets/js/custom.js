@@ -8,16 +8,6 @@ $(window).scroll(function() {
     }
 });
 
-// ------------------ Stop Carousel -------------------------------------
-
-$(document).ready(function() {
-    //Set the carousel options
-    $('#quote-carousel').carousel({
-        pause: true,
-        interval: false
-    });
-});
-
 // ------------------ Navigation Bar (Smooth Scroll) -------------------------
 $(function() {
     $('a[href*="#"]:not([href="#"])').click(function() {

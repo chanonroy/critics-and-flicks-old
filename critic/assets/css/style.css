@@ -92,7 +92,7 @@ a:hover {
 .show {
     /*background: #1e5699;*/
     background: #b5231f;
-    box-shadow: 0px 6px 9px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 9px rgba(0, 0, 0, 0.4);
 }
 .transition {
     -webkit-transition: all 0.5s ease-in-out;
