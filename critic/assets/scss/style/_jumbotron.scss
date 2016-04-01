@@ -1,0 +1,44 @@
+.jumbotron {
+    background-color: #b6231e;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.jumbo-bot {
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    z-index: 2;
+}
+
+#jumbo {
+    color: white;
+    text-align: center;
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 7%;
+    
+    h1 {
+      font-weight: bold;
+      font-size: 5vw;
+    }
+
+    h2 {
+      font-size: 2vw;
+      margin-top: 5px;
+      margin-bottom: 50px;
+    }
+
+    p {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-top: 30px;
+    }
+}

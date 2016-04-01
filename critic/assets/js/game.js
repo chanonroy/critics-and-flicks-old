@@ -21,3 +21,7 @@ $(document).ready(function() {
 $(document).ready(function () {
   $('#quote-carousel').find('.item').first().addClass('active');
 });
+
+// ----------------------- Slick --------------------------------------------
+
+$('.slick').slick();

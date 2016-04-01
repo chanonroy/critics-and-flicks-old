@@ -1,0 +1,58 @@
+.navbar-fixed-top {
+    background: transparent;
+    border: none;
+    @include box-shadow(none);
+}
+.nav.navbar-nav.navbar-right
+    li a {
+    color: #eaeaea;
+    font-size: 16px;
+    }
+    li a:hover {
+    color: white;
+    }
+
+.navbar-nav > li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.navbar-default .navbar-brand {
+    color: #eaeaea;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 25px;
+}
+#brand {
+    height: 30px;
+    width: 30px;
+    display: inline;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: white;
+}
+
+/* --------- Fixed Navigation Solution ----------- */
+.navfix:before {  /* margin-top + height to size of navigation bar for fix */
+  display: block;
+  position: relative;
+  margin-top: -50px;
+  height: 50px;
+  content: " ";
+  visibility: hidden;
+}
+
+/* ------------------ After Scroll ------------------------ */
+.show {
+    background: #b5231f;
+    @include box-shadow(0 6px 9px rgba(0, 0, 0, 0.4));
+}
+.transition {
+    @include transition(all 0.5s ease);
+}

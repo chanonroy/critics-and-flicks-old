@@ -1,0 +1,224 @@
+/* Global Mixins */
+/* all 0.5s ease */
+.navbar-fixed-top {
+  background: transparent;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none; }
+
+.nav.navbar-nav.navbar-right
+li a {
+  color: #eaeaea;
+  font-size: 16px; }
+
+li a:hover {
+  color: white; }
+
+.navbar-nav > li {
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white; }
+
+.navbar-default .navbar-brand {
+  color: #eaeaea;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 25px; }
+
+#brand {
+  height: 30px;
+  width: 30px;
+  display: inline;
+  margin-right: 10px;
+  border-radius: 10px; }
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: white; }
+
+/* --------- Fixed Navigation Solution ----------- */
+.navfix:before {
+  /* margin-top + height to size of navigation bar for fix */
+  display: block;
+  position: relative;
+  margin-top: -50px;
+  height: 50px;
+  content: " ";
+  visibility: hidden; }
+
+/* ------------------ After Scroll ------------------------ */
+.show {
+  background: #b5231f;
+  -webkit-box-shadow: 0 6px 9px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 6px 9px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.4); }
+
+.transition {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+.jumbotron {
+  background-color: #b6231e;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex; }
+
+.jumbo-bot {
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  z-index: 2; }
+
+#jumbo {
+  color: white;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 7%; }
+  #jumbo h1 {
+    font-weight: bold;
+    font-size: 5vw; }
+  #jumbo h2 {
+    font-size: 2vw;
+    margin-top: 5px;
+    margin-bottom: 50px; }
+  #jumbo p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 30px; }
+
+.ghost-button {
+  color: white;
+  border: 2px solid white;
+  background: transparent;
+  padding: 20px 45px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 10px;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  transition: all 0.7s ease; }
+
+.ghost-button:hover, .ghost-button:active {
+  color: #b6231e;
+  background: white;
+  text-decoration: none; }
+
+/* ===========================================================
+                       Instructions
+ ========================================================== */
+#how_to_play {
+  background-color: white;
+  color: #3c3f41;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  #how_to_play h1 {
+    margin-bottom: 50px;
+    font-weight: bold; }
+  #how_to_play div {
+    margin-bottom: 20px; }
+
+/* ===========================================================
+                       Themes
+ ========================================================== */
+#themes {
+  background-color: #364c5b;
+  color: #eaeaea;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  #themes h1 {
+    margin-bottom: 50px;
+    font-weight: bold; }
+  #themes div {
+    margin-bottom: 20px; }
+  #themes img {
+    -webkit-box-shadow: 0px 0px 2px 10px white;
+    -moz-box-shadow: 0px 0px 2px 10px white;
+    box-shadow: 0px 0px 2px 10px white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    -webkit-filter: grayscale(100%);
+    /* Chrome 19+ & Safari 6+ */
+    filter: grayscale(100%); }
+  #themes img:hover {
+    -webkit-filter: grayscale(0%);
+    /* Chrome 19+ & Safari 6+ */
+    filter: grayscale(0%); }
+
+.theme-photo {
+  width: 200px;
+  height: 200px; }
+  @media screen and (max-width: 479px) {
+    .theme-photo {
+      width: 100px;
+      height: 100px; } }
+
+/* ===========================================================
+                       Coming
+ ========================================================== */
+#coming {
+  background-color: #fdf2fa;
+  color: #3c3f41;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  #coming h1 {
+    margin-bottom: 50px;
+    font-weight: bold; }
+  #coming div {
+    margin-bottom: 20px; }
+
+.fa-user {
+  color: #aa3f45; }
+
+.fa-bars {
+  color: #437e53; }
+
+.fa-star {
+  color: #fdd501; }
+
+.fa-gamepad {
+  color: #1c91c4; }
+
+/* ===========================================================
+                       About
+ ========================================================== */
+#about {
+  background-color: #3c3f41;
+  color: #eaeaea;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  #about h3 {
+    margin-bottom: 30px; }
+  #about a {
+    color: lightgrey; }
+  #about a:hover {
+    color: #ffd700; }
+  #about .fa {
+    margin-right: 5px;
+    margin-left: 5px; }
+
+body {
+  background-color: #b6231e;
+  font-family: 'Montserrat', sans-serif; }
+
+/*# sourceMappingURL=style.css.map */

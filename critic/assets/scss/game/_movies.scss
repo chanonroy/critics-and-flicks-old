@@ -1,0 +1,46 @@
+/* ===========================================================
+                          Screen
+ ========================================================== */
+.screen {
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    width: 750px;
+    height: 550px;
+    margin: 75px auto;
+    background-color: transparent;
+
+    right: 0;
+    left: 0;
+}
+.guess-bar {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/* ===========================================================
+                     Movie Button
+ ========================================================== */
+.button {
+  text-decoration: none;
+  font-size: 1.5em;
+  text-align: center;
+  color: #fdfdfe;
+  line-height: 3em;
+  padding-left: 3em;
+  padding-right: 3em;
+  @include box-shadow(0 0 0 0 transparent);
+  @include transition(all 0.2s ease-in);
+}
+.button:hover {
+  color: white;
+  @include box-shadow(0 0 30px 0 rgba(55, 236, 124, 0.5));
+  @include transition(all 0.2s ease-out);
+  @include border-radius(5px);
+  background-color: #26a944;
+  text-decoration: none;
+}

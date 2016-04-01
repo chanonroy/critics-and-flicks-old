@@ -1,0 +1,17 @@
+.ghost-button {
+    color: white;
+    border: 2px solid white;
+    background: transparent;
+    padding: 20px 45px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 10px;
+    @include transition(all 0.7s ease);
+}
+
+.ghost-button:hover, .ghost-button:active {
+    color: #b6231e;
+    background: white;
+    text-decoration: none;
+}

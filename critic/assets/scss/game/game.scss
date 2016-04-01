@@ -1,0 +1,9 @@
+@import "mixins";
+@import "navigation";
+@import "movies";
+@import "reviews";
+
+body {
+    background-color: black;
+    font-family: 'Montserrat', sans-serif;
+}
