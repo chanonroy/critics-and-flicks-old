@@ -8,20 +8,34 @@ $(window).scroll(function() {
     }
 });
 
-// ------------------ Stop Carousel -------------------------------------
+// ------------------ Stop Bootstrap Carousel --------------------------
 
-$(document).ready(function() {
-    //Set the carousel options
-    $('#quote-carousel').carousel({
-        pause: true,
-        interval: false
-    });
+$('#quote-carousel').carousel({
+    pause: true,
+    interval: false
 });
+
 
 $(document).ready(function () {
   $('#quote-carousel').find('.item').first().addClass('active');
 });
 
-// ----------------------- Slick --------------------------------------------
+// ------------------ Stop Carousel -------------------------------------
 
-$('.slick').slick();
+$('.bar').hover(
+  function() {
+    $(this).addClass("bar-roll");
+  },
+  function() {
+    $(this).removeClass("bar-roll");
+  }
+);
+
+$('.bar').on("click",
+  function() {
+    $('.bar .bar-on').removeClass("bar-on");
+  },
+  function() {
+    $(this).addClass("bar-on");
+  }
+);
