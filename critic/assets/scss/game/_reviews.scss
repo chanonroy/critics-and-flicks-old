@@ -75,6 +75,10 @@
     background: #ebc401;
 }
 
+.carousel .item {
+    @include transition(all 0.2s ease);
+}
+
 /* Changes the position of the indicators */
 #quote-carousel {
     .carousel-indicators {

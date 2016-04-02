@@ -20,7 +20,7 @@ $(document).ready(function () {
   $('#quote-carousel').find('.item').first().addClass('active');
 });
 
-// ------------------ Stop Carousel -------------------------------------
+// ------------------ Navigation Bar for Movies --------------------------
 
 $('.bar').hover(
   function() {
@@ -29,13 +29,9 @@ $('.bar').hover(
   function() {
     $(this).removeClass("bar-roll");
   }
-);
-
-$('.bar').on("click",
-  function() {
-    $('.bar .bar-on').removeClass("bar-on");
-  },
-  function() {
+  ).on("click", function() {
     $(this).addClass("bar-on");
+    $(this).siblings().removeClass("bar-on");
+    var panelId = $(this).attr('data-panelid');
   }
 );

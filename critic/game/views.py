@@ -6,7 +6,7 @@ from .models import Movie
 def game(request):
 
     # random movie from database (TODO: refactor)
-    m_count = 60    # hardcoded to avoid costly counting operation
+    m_count = 60 - 1    # hardcoded to avoid costly counting operation
     movies_int = random.randint(0, m_count)
     m = Movie.objects.all()[movies_int]                     # alt = Movie.objects.get(title=movie) - with text file
 
