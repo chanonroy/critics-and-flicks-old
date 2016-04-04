@@ -20,18 +20,10 @@ $(document).ready(function () {
   $('#quote-carousel').find('.item').first().addClass('active');
 });
 
-// ------------------ Navigation Bar for Movies --------------------------
+// ---------------------- Flickity Carousel --------------------------
 
-$('.bar').hover(
-  function() {
-    $(this).addClass("bar-roll");
-  },
-  function() {
-    $(this).removeClass("bar-roll");
-  }
-  ).on("click", function() {
-    $(this).addClass("bar-on");
-    $(this).siblings().removeClass("bar-on");
-    var panelId = $(this).attr('data-panelid');
-  }
-);
+$('#slides').flickity({
+  // options
+  wrapAround: true,
+  prevNextButtons: false,
+});

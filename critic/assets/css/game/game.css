@@ -39,53 +39,49 @@
 /* ===========================================================
                           Screen
  ========================================================== */
-.slides {
-  /* container for the movie slideshow */
-  width: 100%;
-  margin: 70px auto 0; }
+#slides {
+  margin: 80px auto; }
 
-.inside {
+.carousel-cell {
   /* items within the movie slideshow */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 450px;
-  background-color: black;
-  color: white; }
+  padding: 20px;
+  color: white;
+  /* css style for fade */
+  left: 0 !important;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1; }
 
-.slide-nav {
-  /* container for the slideshow nav bar */
-  margin-top: 35px;
-  text-align: center; }
+.carousel-cell.is-selected {
+  opacity: 1;
+  z-index: 0; }
 
-.bar {
-  /* items within the slideshow nav bar */
-  display: inline-block;
-  height: 20px;
-  width: 80px;
-  margin: 0 4px;
-  background-color: grey;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  transition: all 0.2s ease; }
+.flickity-slider {
+  transform: none !important; }
 
-.bar-roll, .bar-on {
-  /* jQuery rollover will add bar-light */
-  background-color: #26a944;
-  -webkit-box-shadow: 0 0 30px 0 rgba(55, 236, 124, 0.5);
-  -moz-box-shadow: 0 0 30px 0 rgba(55, 236, 124, 0.5);
-  box-shadow: 0 0 30px 0 rgba(55, 236, 124, 0.5); }
+/* position dots up a bit */
+.flickity-page-dots {
+  bottom: -50px; }
 
-.bar-on {
-  /* jQuery rollover will add bar-light */ }
+/* dots are lines */
+.flickity-page-dots .dot {
+  height: 30px;
+  width: 100px;
+  margin: 0 10px;
+  background: #e8e8e8;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px; }
+
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  background: gold; }
 
 /* ===========================================================
                      Movie Button
@@ -98,7 +94,7 @@
   line-height: 2.5em;
   padding-left: 2em;
   padding-right: 2em;
-  margin-top: 5px;
+  margin-top: 15px;
   -webkit-box-shadow: 0 0 0 0 transparent;
   -moz-box-shadow: 0 0 0 0 transparent;
   box-shadow: 0 0 0 0 transparent;

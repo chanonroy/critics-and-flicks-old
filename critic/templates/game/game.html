@@ -2,114 +2,101 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Critics and Flicks | Game </title>
-  <!-- Bootstrap Official CSS -->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <meta charset="UTF-8">
+    <title>Critics and Flicks | Game </title>
+    <!-- Bootstrap Official CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-  <!-- Custom CSS Styles -->
-  <link rel="stylesheet" href="/assets/css/game/game.css" />
+    <!-- Custom CSS Styles -->
+    <link rel="stylesheet" href="https://npmcdn.com/flickity@1.2/dist/flickity.min.css" media="screen">
+    <link rel="stylesheet" href="/assets/css/game/game.css" />
 </head>
 
 <body>
 
-  <section>
+<section>
     <nav class="navbar navbar-default navbar-fixed-top transition">
-      <div class="container">
-        <!-- Logo here -->
-        <div class="navbar-header">
-          <!-- Responsive Hamburger Icon -->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><strong>C<font color="#ffd700">&</font>F</strong></a>
-        </div>
-
-        <!-- Menu Items -->
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Instructions</a></li>
-            <li><a href="#">Categories</a></li>
-            <li><a href="#">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </section>
-
-<div class="slides">
-  <div id="#panelid" class="inside">
-      <object width="700" height="350" data="https://www.youtube-nocookie.com/embed/IJBnK2wNQSo"></object>
-      <div class="button"> Gods of Egypt </div>
-  </div>
-</div>
-<div class="slide-nav">
-  <div data-panelid="#panel1" class="bar"></div>
-  <div data-panelid="#panel2" class="bar"></div>
-  <div data-panelid="#panel3" class="bar"></div>
-  <div data-panelid="#panel4" class="bar"></div>
-  <div data-panelid="#panel5" class="bar"></div>
-  <div data-panelid="#panel6" class="bar"></div>
-</div>
-
-  <!-- 650 by 450 -->
-  <!-- <div class="screen">
-    <object width="750" height="400" data="https://www.youtube-nocookie.com/embed/IJBnK2wNQSo"></object>
-    <div class="guess-bar">
-      <a href="#" class="button">Gods of Egypt</a>
-    </div>
-  </div> -->
-
-  <div class="review-section">
-    <div class="bubble">
-      <div id="quote-carousel" class="carousel slide" data-ride="carousel">
-        <!-- Bottom Carousel Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
-          <li data-target="#quote-carousel" data-slide-to="1"></li>
-          <li data-target="#quote-carousel" data-slide-to="2"></li>
-        </ol>
-        <!-- Carousel Slides / Quotes -->
-        <div class="carousel-inner">
-          {% for rev in reviews %}
-          <!-- Quote 1 -->
-          <div class="item">
-            <div class="review-text">
-              <p> {{ rev.review }} </p>
-              <small><b>{{ rev.reviewer }}</b></small>
+        <div class="container">
+            <!-- Logo here -->
+            <div class="navbar-header">
+                <!-- Responsive Hamburger Icon -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><strong>C<font color="#ffd700">&</font>F</strong></a>
             </div>
-          </div>
-          <!-- item -->
-          {% endfor %}
+
+            <!-- Menu Items -->
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Instructions</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
         </div>
-        <!-- carousel inner -->
-        <a data-slide="prev" href="#quote-carousel" class="left carousel-control">‹</a>
-        <a data-slide="next" href="#quote-carousel" class="right carousel-control">›</a>
-      </div>
-      <!-- carousel slide -->
+    </nav>
+</section>
+
+<div id="slides">
+    {% for key, value in similar.items %}
+    <div class="carousel-cell">
+        <object width="700" height="350" data="{{ value }}"></object>
+        <div class="button"> {{ key }} </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="review-section">
+    <div class="bubble">
+        <div id="quote-carousel" class="carousel slide" data-ride="carousel">
+            <!-- Bottom Carousel Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#quote-carousel" data-slide-to="1"></li>
+                <li data-target="#quote-carousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Carousel Slides / Quotes -->
+            <div class="carousel-inner">
+                {% for rev in reviews %}
+                    <!-- Quote 1 -->
+                    <div class="item">
+                        <div class="review-text">
+                            <p> {{ rev.review }} </p>
+                            <small><b>{{ rev.reviewer }}</b></small>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- carousel inner -->
+            <a data-slide="prev" href="#quote-carousel" class="left carousel-control">‹</a>
+            <a data-slide="next" href="#quote-carousel" class="right carousel-control">›</a>
+        </div>
+        <!-- carousel slide -->
     </div>
     <!-- bubble -->
     <div class="seats">
-      <img src="/assets/imgs/seat-long.png" class="img-responsive seat">
+        <img src="/assets/imgs/seat-long.png" class="img-responsive seat">
     </div>
-  </div>
-  <!-- review section -->
+</div>
+<!-- review section -->
 
-  <!-- Bootstrap Core JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <!-- Custom JS -->
-  <script src="/assets/js/game.js"></script>
+<!-- Bootstrap Core JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Custom JS -->
+<script src="https://npmcdn.com/flickity@1.2/dist/flickity.pkgd.min.js"></script>
+<script src="/assets/js/game.js"></script>
 
 </body>
 
