@@ -6,7 +6,7 @@ from .models import Movie
 def game(request):
 
     # random movie from database (TODO: refactor)
-    m_count = 60 - 1    # hardcoded to avoid costly counting operation
+    m_count = 150 - 1    # hardcoded to avoid costly counting operation
     movies_int = random.randint(0, m_count)
     m = Movie.objects.all()[movies_int]                     # alt = Movie.objects.get(title=movie) - with text file
 
@@ -19,8 +19,8 @@ def game(request):
     # (TODO: return 2 out of 5 similar with main included)
     t = m.similar_set.values()
     t = t[0]
-    sim = {t['real']: t['real_u'], t['sim1']: t['url1'], t['sim2']: t['url2'], t['sim3']: t['url3'],
-           t['sim4']: t['url4'], t['sim5']: t['url5']}
+    sim = {t['sim1']: (t['url1'], 'blank'), t['sim2']: (t['url2'], 'blank'), t['sim3']: (t['url3'], 'blank')}
+    sim[t['real']] = (t['real_u'], 'real')
     # TODO: add html class in the value for key (main movie)
 
     context = {

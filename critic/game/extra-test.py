@@ -5,12 +5,9 @@ l = [{'url1': 'youtube link 1', 'real': 'Gods of Egypt', 'real_u': 'youtube link
       'url4': 'youtube link 4', 'sim4': '300'}]
 l = l[0]
 
-new = {l['real']: l['real_u'], l['sim1']: l['url1'], l['sim3']: l['url3'], l['sim4']: l['url4']}
+new = {l['real']: (l['real_u'], 'blank'), l['sim1']: (l['url1'], 'blank'),
+       l['sim3']: (l['url3'], 'blank'), l['sim4']: (l['url4'], 'blank')}
 
-print(l)
-print(new)
+for key, value in new.items():
+      print("{} {} {}".format(key, value[0], value[1]))
 
-
-
-# create list of five, shuffle, add 3 in
-# add in real, shuffle list again

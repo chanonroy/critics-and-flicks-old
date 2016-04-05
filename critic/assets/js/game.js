@@ -25,5 +25,35 @@ $(document).ready(function () {
 $('#slides').flickity({
   // options
   wrapAround: true,
-  prevNextButtons: false,
+  prevNextButtons: false
 });
+
+// TODO: find solution to stop the video
+// $('.flickity-page-dots').click(function() {
+//     $('.video').get(0).stopVideo();
+// });
+
+// ---------------------- Sweet JS --------------------------
+
+document.querySelector('.real').onclick = function(){
+	swal({
+    type: "success",
+    title: "Good Job!",
+    text: 'You guessed the right movie.',
+    animation: "slide-from-top",
+    confirmButtonText: "Next"
+}, function(){
+    window.location.reload(); // <-- reload page TODO: add AJAX call
+    });
+};
+document.querySelector('.blank').onclick = function(){
+    swal({
+    type: "error",
+    title: "Oh No!",
+    text: 'You guessed the wrong movie.',
+    animation: "slide-from-top",
+    confirmButtonText: "Next"
+}, function(){
+    window.location.reload(); // <-- reload page TODO: add AJAX call
+    });
+};
