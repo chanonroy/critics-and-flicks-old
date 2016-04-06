@@ -130,6 +130,11 @@ li a:hover {
     font-weight: bold; }
   #how_to_play div {
     margin-bottom: 20px; }
+  #how_to_play img {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    border-radius: 10px; }
 
 /* ===========================================================
                        Themes

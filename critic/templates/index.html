@@ -55,10 +55,10 @@
     <div class="jumbotron">
         <div id="jumbo">
             <h1>CRITICS <font color="#ffd700">&#38;</font> FLICKS</h1>
-            <h2> A Movie Guessing Game</h2>
+            <h2> A Movie Guessing Game </h2>
             <h3> Guess the movie after reading the reviews </h3>
             <p> <font color="#ffd700">150+</font> movies | <font color="#ffd700">750+</font> reviews </p>
-            <p> <a href="#" class="ghost-button">Play Now</a> <a href="#2" class="ghost-button">How to Play</a> </p>
+            <p> <a href="{% url 'game.views.game' %}" class="ghost-button">Play Now</a> <a href="#2" class="ghost-button">How to Play</a> </p>
         </div>
         <div class="jumbo-bot">
             <img src="/assets/imgs/popcorn.png">
@@ -75,25 +75,25 @@
             </div>
             <div class="row text-center">
                 <div class="col-sm-6 col-xs-12">
-                    <img src="http://placehold.it/100" style="width:400px; height:200px">
-                    <h3> Step 1</h3>
-                    <p> Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor  </p>
+                    <img src="/assets/imgs/step1.png" style="width:400px; height:250px">
+                    <h3> Step 1 </h3>
+                    <p> Take a moment to read the reviews given to you  </p>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <img src="http://placehold.it/100" style="width:400px; height:200px">
+                    <img src="/assets/imgs/step2.png" style="width:400px; height:250px">
                     <h3>Step 2</h3>
-                    <p> Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio  </p>
+                    <p> Browse the movie choices using the movie selection bar  </p>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-sm-6 col-xs-12">
-                    <img src="http://placehold.it/100" style="width:400px; height:200px">
+                    <img src="/assets/imgs/step3.png" style="width:400px; height:250px">
                     <h3>Step 3</h3>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. </p>
+                    <p> Click on a movie's title to make your selection </p>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <img src="http://placehold.it/100" style="width:400px; height:200px">
+                    <img src="/assets/imgs/step4.png" style="width:400px; height:250px">
                     <h3>Step 4</h3>
-                    <p>Cusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p> You'll be prompted with the results </p>
                 </div>
             </div>
         </div>

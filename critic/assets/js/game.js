@@ -46,7 +46,7 @@ document.querySelector('.real').onclick = function(){
     window.location.reload(); // <-- reload page TODO: add AJAX call
     });
 };
-document.querySelector('.blank').onclick = function(){
+$('.blank').on('click', function(){
     swal({
     type: "error",
     title: "Oh No!",
@@ -56,4 +56,4 @@ document.querySelector('.blank').onclick = function(){
 }, function(){
     window.location.reload(); // <-- reload page TODO: add AJAX call
     });
-};
+});
