@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- Custom CSS Styles -->
-    <link rel="stylesheet" href="/assets/css/style/style.css"/>
+    <link rel="stylesheet" href="{% static "css/style/style.css" %}"/>
 
 </head>
 <body>
@@ -61,7 +62,7 @@
             <p> <a href="{% url 'game.views.game' %}" class="ghost-button">Play Now</a> <a href="#2" class="ghost-button">How to Play</a> </p>
         </div>
         <div class="jumbo-bot">
-            <img src="/assets/imgs/popcorn.png">
+            <img src="{% static "imgs/popcorn.png" %}">
         </div>
     </div>
 </section>
@@ -75,23 +76,23 @@
             </div>
             <div class="row text-center">
                 <div class="col-sm-6 col-xs-12">
-                    <img src="/assets/imgs/step1.png" style="width:400px; height:250px">
+                    <img src="{% static "imgs/step1.png" %}" style="width:400px; height:250px">
                     <h3> Step 1 </h3>
                     <p> Take a moment to read the reviews given to you  </p>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <img src="/assets/imgs/step2.png" style="width:400px; height:250px">
+                    <img src="{% static "imgs/step2.png" %}" style="width:400px; height:250px">
                     <h3>Step 2</h3>
                     <p> Browse the movie choices using the movie selection bar  </p>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-sm-6 col-xs-12">
-                    <img src="/assets/imgs/step3.png" style="width:400px; height:250px">
+                    <img src="{% static "imgs/step3.png" %}" style="width:400px; height:250px">
                     <h3>Step 3</h3>
                     <p> Click on a movie's title to make your selection </p>
                 </div>
                 <div class="col-sm-6 col-xs-12">
-                    <img src="/assets/imgs/step4.png" style="width:400px; height:250px">
+                    <img src="{% static "imgs/step4.png" %}" style="width:400px; height:250px">
                     <h3>Step 4</h3>
                     <p> You'll be prompted with the results </p>
                 </div>
@@ -109,39 +110,39 @@
             </div>
             <div class="row text-center">
                 <div class="col-lg-3 col-xs-6">
-                    <img src="/assets/imgs/avengers.jpg" class="theme-photo">
+                    <img src="{% static "imgs/avengers.jpg" %}" class="theme-photo">
                     <h3> 2010s </h3>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <img src="/assets/imgs/avatar.jpg" class="theme-photo">
+                    <img src="{% static "imgs/avatar.jpg" %}" class="theme-photo">
                     <h3>2000s</h3>
                 </div>
                 <!--<div class="clearfix-visible-xs"></div>-->
                 <div class="col-lg-3 col-xs-6">
-                    <img src="/assets/imgs/shaw.jpg" class="theme-photo">
+                    <img src="{% static "imgs/shaw.jpg" %}" class="theme-photo">
                     <h3>1990s</h3>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <img src="/assets/imgs/indiana.jpg" class="theme-photo">
+                    <img src="{% static "imgs/indiana.jpg" %}" class="theme-photo">
                     <h3>1980s</h3>
                 </div>
             </div>
             <div class="row text-center">
                 <div class="col-lg-3 col-xs-6">
-                    <img src="/assets/imgs/cruise.jpg" class="theme-photo">
+                    <img src="{% static "imgs/cruise.jpg" %}" class="theme-photo">
                     <h3> Action </h3>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <img src="/assets/imgs/carey.jpg" class="theme-photo">
+                    <img src="{% static "imgs/carey.jpg" %}" class="theme-photo">
                     <h3> Comedy </h3>
                 </div>
                 <!--<div class="clearfix"></div>-->
                 <div class="col-lg-3 col-xs-6">
-                    <img src="/assets/imgs/horror.jpg" class="theme-photo">
+                    <img src="{% static "imgs/horror.jpg" %}" class="theme-photo">
                     <h3> Horror </h3>
                 </div>
                 <div class="col-lg-3 col-xs-6">
-                    <img src="/assets/imgs/notebook.jpeg" class="theme-photo">
+                    <img src="{% static "imgs/notebook.jpeg" %}" class="theme-photo">
                     <h3> Romance </h3>
                 </div>
             </div>
@@ -218,7 +219,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <!-- Custom JS -->
-<script src="/assets/js/custom.js"></script>
+<script src="{% static "js/custom.js" %}"></script>
 
 </body>
 </html>
