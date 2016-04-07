@@ -43,7 +43,13 @@ document.querySelector('.real').onclick = function(){
     animation: "slide-from-top",
     confirmButtonText: "Next"
 }, function(){
-    window.location.reload(); // <-- reload page TODO: add AJAX call
+    window.location.reload();
+    // $.ajax({
+    //     url: "",
+    //     success: function(data) {
+    //     $('#slides').html(data);
+    //     }
+    // });
     });
 };
 $('.blank').on('click', function(){
@@ -54,6 +60,6 @@ $('.blank').on('click', function(){
     animation: "slide-from-top",
     confirmButtonText: "Next"
 }, function(){
-    window.location.reload(); // <-- reload page TODO: add AJAX call
+    window.location.reload();
     });
 });
