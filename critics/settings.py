@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-from critic.secrets import *
+import dj_database_url
+from .secrets import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,8 +27,6 @@ SECRET_KEY = s_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -53,7 +53,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'critic.urls'
+ROOT_URLCONF = 'critics.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'critic.wsgi.application'
+WSGI_APPLICATION = 'critics.wsgi.application'
 
 
 # Database
@@ -121,7 +121,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# Update database configuration with $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
@@ -129,6 +137,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/assets/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
-)
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_ROOT, 'assets'),
+]

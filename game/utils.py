@@ -7,7 +7,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-from critic.secrets import *
+from src.secrets import *
 from .models import Movie
 
 
